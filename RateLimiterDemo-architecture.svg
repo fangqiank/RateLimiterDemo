@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 850" width="1300" height="850">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#42b883;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#35495e;stop-opacity:1" />
+    </linearGradient>
+
+    <marker id="arrowSky" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0ea5e9"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f97316"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#42b883"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <style>
+    .flow-line-sky { stroke-dasharray: 8, 4; animation: dash-flow-sky 0.5s linear infinite; }
+    .flow-line-purple { stroke-dasharray: 8, 4; animation: dash-flow-purple 0.5s linear infinite; }
+    .flow-line-orange { stroke-dasharray: 8, 4; animation: dash-flow-orange 0.5s linear infinite; }
+    .flow-line-green { stroke-dasharray: 8, 4; animation: dash-flow-green 0.5s linear infinite; }
+    .flow-line-blue { stroke-dasharray: 8, 4; animation: dash-flow-blue 0.5s linear infinite; }
+    .flow-line-teal { stroke-dasharray: 8, 4; animation: dash-flow-teal 0.5s linear infinite; }
+    .flow-line-red { stroke-dasharray: 8, 4; animation: dash-flow-red 0.5s linear infinite; }
+
+    @keyframes dash-flow-sky { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-purple { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-orange { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-green { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-blue { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-teal { to { stroke-dashoffset: -12; } }
+    @keyframes dash-flow-red { to { stroke-dashoffset: -12; } }
+  </style>
+
+  <!-- White background -->
+  <rect width="1300" height="850" fill="#ffffff"/>
+  <g opacity="0.15">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#94a3b8" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1300" height="850" fill="url(#grid)"/>
+  </g>
+
+  <!-- Title -->
+  <g transform="translate(650, 38)">
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">分布式限流系统架构 / RateLimiterDemo Architecture</text>
+    <text x="0" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">.NET 10 + Aspire 13.2 + Redis — Multi-instance Global Rate Limiting</text>
+  </g>
+
+  <!-- ===================== Aspire AppHost (top center) ===================== -->
+  <g transform="translate(390, 70)">
+    <rect x="0" y="0" width="520" height="70" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2"/>
+    <rect x="0" y="0" width="520" height="32" rx="12" fill="url(#purpleGradient)"/>
+    <rect x="0" y="18" width="520" height="14" fill="url(#purpleGradient)"/>
+    <text x="260" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Aspire AppHost / 编排器</text>
+    <text x="120" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#7c3aed">AppHost.cs</text>
+    <text x="260" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Orchestrator</text>
+    <text x="400" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#7c3aed">Dashboard :17001</text>
+  </g>
+
+  <!-- AppHost → API instances (manages) -->
+  <path d="M 500 140 L 350 175" stroke="#f3e8ff" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 500 140 L 350 175" class="flow-line-purple" stroke="#a855f7" stroke-width="2.5" fill="none" marker-end="url(#arrowPurple)" stroke-linecap="round"/>
+  <text x="395" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#a855f7" transform="rotate(-12, 395, 152)">manages</text>
+
+  <!-- AppHost → Redis (provisions) -->
+  <path d="M 800 140 L 980 175" stroke="#dbeafe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 800 140 L 980 175" class="flow-line-blue" stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)" stroke-linecap="round"/>
+  <text x="900" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3b82f6" transform="rotate(12, 900, 152)">provisions</text>
+
+  <!-- ===================== Client (left) ===================== -->
+  <g transform="translate(30, 280)">
+    <rect x="0" y="0" width="170" height="130" rx="12" fill="#f1f5f9" stroke="#0ea5e9" stroke-width="2"/>
+    <rect x="0" y="0" width="170" height="32" rx="12" fill="url(#skyGradient)"/>
+    <rect x="0" y="18" width="170" height="14" fill="url(#skyGradient)"/>
+    <text x="85" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Client / 客户端</text>
+    <text x="85" y="55" text-anchor="middle" font-family="monospace" font-size="10" fill="#0284c7">curl / Browser</text>
+    <text x="85" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">HTTP Requests</text>
+    <text x="85" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">X-Forwarded-For</text>
+    <text x="85" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">clientId identification</text>
+  </g>
+
+  <!-- Client → API Instance 1 -->
+  <path d="M 200 320 L 280 210" stroke="#e0f2fe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 200 320 L 280 210" class="flow-line-sky" stroke="#0ea5e9" stroke-width="2.5" fill="none" marker-end="url(#arrowSky)" stroke-linecap="round"/>
+  <!-- Client → API Instance 2 -->
+  <path d="M 200 345 L 280 345" stroke="#e0f2fe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 200 345 L 280 345" class="flow-line-sky" stroke="#0ea5e9" stroke-width="2.5" fill="none" marker-end="url(#arrowSky)" stroke-linecap="round"/>
+  <!-- Client → API Instance 3 -->
+  <path d="M 200 370 L 280 480" stroke="#e0f2fe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 200 370 L 280 480" class="flow-line-sky" stroke="#0ea5e9" stroke-width="2.5" fill="none" marker-end="url(#arrowSky)" stroke-linecap="round"/>
+
+  <!-- ===================== API Instance 1 ===================== -->
+  <g transform="translate(290, 175)">
+    <rect x="0" y="0" width="220" height="90" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <rect x="0" y="0" width="220" height="28" rx="10" fill="url(#orangeGradient)"/>
+    <rect x="0" y="16" width="220" height="12" fill="url(#orangeGradient)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">API Instance 1</text>
+    <text x="110" y="46" text-anchor="middle" font-family="monospace" font-size="9" fill="#ea580c">DemoController</text>
+    <text x="110" y="62" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">RateLimitingMiddleware</text>
+    <text x="110" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">:3491 (https)</text>
+  </g>
+
+  <!-- API Instance 2 -->
+  <g transform="translate(290, 300)">
+    <rect x="0" y="0" width="220" height="90" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <rect x="0" y="0" width="220" height="28" rx="10" fill="url(#orangeGradient)"/>
+    <rect x="0" y="16" width="220" height="12" fill="url(#orangeGradient)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">API Instance 2</text>
+    <text x="110" y="46" text-anchor="middle" font-family="monospace" font-size="9" fill="#ea580c">DemoController</text>
+    <text x="110" y="62" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">RateLimitingMiddleware</text>
+    <text x="110" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">auto-assigned port</text>
+  </g>
+
+  <!-- API Instance 3 -->
+  <g transform="translate(290, 425)">
+    <rect x="0" y="0" width="220" height="90" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <rect x="0" y="0" width="220" height="28" rx="10" fill="url(#orangeGradient)"/>
+    <rect x="0" y="16" width="220" height="12" fill="url(#orangeGradient)"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">API Instance 3</text>
+    <text x="110" y="46" text-anchor="middle" font-family="monospace" font-size="9" fill="#ea580c">DemoController</text>
+    <text x="110" y="62" text-anchor="middle" font-family="monospace" font-size="9" fill="#64748b">RateLimitingMiddleware</text>
+    <text x="110" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">auto-assigned port</text>
+  </g>
+
+  <!-- ===================== Rate Limiting Layer (center) ===================== -->
+  <g transform="translate(570, 175)">
+    <rect x="0" y="0" width="260" height="340" rx="12" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="32" rx="12" fill="url(#greenGradient)"/>
+    <rect x="0" y="18" width="260" height="14" fill="url(#greenGradient)"/>
+    <text x="130" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Rate Limiting / 限流算法</text>
+
+    <!-- Fixed Window -->
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#ffffff" stroke="#dcfce7" stroke-width="1"/>
+      <text x="115" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#22c55e">FixedWindowRateLimiter</text>
+      <text x="115" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">String counter + TTL</text>
+      <text x="115" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">key: ratelimit:fixed:{id}:{window}</text>
+      <text x="115" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#ef4444">Boundary burst risk (2x at edges)</text>
+    </g>
+
+    <!-- Sliding Window -->
+    <g transform="translate(15, 140)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#ffffff" stroke="#dcfce7" stroke-width="1"/>
+      <text x="115" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#22c55e">SlideWindowRateLimiter</text>
+      <text x="115" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Sorted Set (score=timestamp)</text>
+      <text x="115" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">key: ratelimit:sliding:{id}</text>
+      <text x="115" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Smooth, no boundary issue</text>
+    </g>
+
+    <!-- Token Bucket -->
+    <g transform="translate(15, 235)">
+      <rect x="0" y="0" width="230" height="80" rx="6" fill="#ffffff" stroke="#dcfce7" stroke-width="1"/>
+      <text x="115" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#22c55e">LuaScriptRateLimiter</text>
+      <text x="115" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Hash + Lua script (atomic)</text>
+      <text x="115" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">key: ratelimit:tokenbucket:{id}</text>
+      <text x="115" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#22c55e">Allows controlled bursts</text>
+    </g>
+  </g>
+
+  <!-- API → Rate Limiting Layer -->
+  <path d="M 510 220 L 570 250" stroke="#fed7aa" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 510 220 L 570 250" class="flow-line-orange" stroke="#f97316" stroke-width="2.5" fill="none" marker-end="url(#arrowOrange)" stroke-linecap="round"/>
+  <path d="M 510 345 L 570 345" stroke="#fed7aa" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 510 345 L 570 345" class="flow-line-orange" stroke="#f97316" stroke-width="2.5" fill="none" marker-end="url(#arrowOrange)" stroke-linecap="round"/>
+  <path d="M 510 470 L 570 440" stroke="#fed7aa" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 510 470 L 570 440" class="flow-line-orange" stroke="#f97316" stroke-width="2.5" fill="none" marker-end="url(#arrowOrange)" stroke-linecap="round"/>
+  <text x="540" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#f97316" transform="rotate(-90, 540, 330)">check rate</text>
+
+  <!-- ===================== Redis (right) ===================== -->
+  <g transform="translate(900, 210)">
+    <rect x="0" y="0" width="200" height="170" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="32" rx="12" fill="url(#blueGradient)"/>
+    <rect x="0" y="18" width="200" height="14" fill="url(#blueGradient)"/>
+    <text x="100" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Redis / 共享存储</text>
+    <text x="100" y="50" text-anchor="middle" font-family="monospace" font-size="10" fill="#2563eb">ratelimit-redis:6379</text>
+    <text x="100" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Shared Counter</text>
+    <text x="100" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">String | Sorted Set | Hash</text>
+    <text x="100" y="115" text-anchor="middle" font-family="monospace" font-size="9" fill="#2563eb">INCR | ZADD | HMGET</text>
+    <text x="100" y="135" text-anchor="middle" font-family="monospace" font-size="9" fill="#2563eb">Lua Script (EVALSHA)</text>
+    <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">ContainerLifetime.Persistent</text>
+  </g>
+
+  <!-- Rate Limiting → Redis -->
+  <path d="M 830 260 L 900 260" stroke="#dbeafe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 830 260 L 900 260" class="flow-line-blue" stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)" stroke-linecap="round"/>
+  <path d="M 830 345 L 900 345" stroke="#dbeafe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 830 345 L 900 345" class="flow-line-blue" stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)" stroke-linecap="round"/>
+  <path d="M 830 430 L 900 370" stroke="#dbeafe" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 830 430 L 900 370" class="flow-line-blue" stroke="#3b82f6" stroke-width="2.5" fill="none" marker-end="url(#arrowBlue)" stroke-linecap="round"/>
+  <text x="865" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3b82f6">read/write</text>
+
+  <!-- Redis 429 rejection flow -->
+  <path d="M 900 290 L 840 290 L 840 550 L 510 550 L 510 375 L 200 375" stroke="#fef2f2" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="4,4"/>
+  <path d="M 900 290 L 840 290 L 840 550 L 510 550 L 510 375 L 200 375" class="flow-line-red" stroke="#ef4444" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="870" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#ef4444">HTTP 429 Too Many Requests</text>
+
+  <!-- ===================== Redis Commander (bottom-right) ===================== -->
+  <g transform="translate(900, 430)">
+    <rect x="0" y="0" width="200" height="85" rx="12" fill="#f0fdf4" stroke="#42b883" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="28" rx="12" fill="url(#tealGradient)"/>
+    <rect x="0" y="16" width="200" height="12" fill="url(#tealGradient)"/>
+    <text x="100" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">Redis Commander</text>
+    <text x="100" y="45" text-anchor="middle" font-family="monospace" font-size="10" fill="#35495e">Management UI</text>
+    <text x="100" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Browse keys &amp; values</text>
+  </g>
+
+  <!-- Redis → Redis Commander -->
+  <path d="M 1000 380 L 1000 430" stroke="#d1fae5" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M 1000 380 L 1000 430" class="flow-line-teal" stroke="#42b883" stroke-width="2.5" fill="none" marker-end="url(#arrowTeal)" stroke-linecap="round"/>
+
+  <!-- ===================== ServiceDefaults (bottom-left of API) ===================== -->
+  <g transform="translate(290, 560)">
+    <rect x="0" y="0" width="220" height="60" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="110" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#7c3aed">ServiceDefaults</text>
+    <text x="110" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">OpenTelemetry | Health Checks</text>
+    <text x="110" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#94a3b8">Service Discovery | HTTP Resilience</text>
+  </g>
+
+  <!-- ===================== Process Description ===================== -->
+  <g transform="translate(30, 630)">
+    <rect x="0" y="0" width="580" height="190" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="290" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Request Flow / 请求流程</text>
+
+    <g transform="translate(20, 42)">
+      <circle cx="8" cy="8" r="6" fill="#0ea5e9"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">1. Client sends HTTP request / 客户端发送请求</text>
+    </g>
+    <g transform="translate(20, 67)">
+      <circle cx="8" cy="8" r="6" fill="#f97316"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">2. Load balancer routes to one of 3 API instances / 负载均衡分发</text>
+    </g>
+    <g transform="translate(20, 92)">
+      <circle cx="8" cy="8" r="6" fill="#22c55e"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">3. RateLimitingMiddleware checks rate limit / 中间件检查限流</text>
+    </g>
+    <g transform="translate(20, 117)">
+      <circle cx="8" cy="8" r="6" fill="#3b82f6"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">4. Redis returns shared counter (atomic operation) / Redis 返回共享计数</text>
+    </g>
+    <g transform="translate(20, 142)">
+      <circle cx="8" cy="8" r="6" fill="#22c55e"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">5. Allowed → process request; Denied → HTTP 429 / 放行或拒绝</text>
+    </g>
+    <g transform="translate(20, 167)">
+      <circle cx="8" cy="8" r="6" fill="#a855f7"/>
+      <text x="25" y="12" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">6. Response headers: X-RateLimit-Limit, X-RateLimit-Remaining / 响应头</text>
+    </g>
+  </g>
+
+  <!-- ===================== Legend ===================== -->
+  <g transform="translate(660, 630)">
+    <rect x="0" y="0" width="600" height="190" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <text x="300" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#64748b">LEGEND / 图例</text>
+
+    <rect x="20" y="42" width="35" height="16" rx="3" fill="url(#skyGradient)"/>
+    <text x="65" y="55" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">Client / 客户端</text>
+
+    <rect x="180" y="42" width="35" height="16" rx="3" fill="url(#purpleGradient)"/>
+    <text x="225" y="55" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">Orchestrator / 编排</text>
+
+    <rect x="380" y="42" width="35" height="16" rx="3" fill="url(#orangeGradient)"/>
+    <text x="425" y="55" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">API Instance / 实例</text>
+
+    <rect x="20" y="72" width="35" height="16" rx="3" fill="url(#greenGradient)"/>
+    <text x="65" y="85" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">Rate Limiting / 限流</text>
+
+    <rect x="180" y="72" width="35" height="16" rx="3" fill="url(#blueGradient)"/>
+    <text x="225" y="85" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">Storage / 存储</text>
+
+    <rect x="380" y="72" width="35" height="16" rx="3" fill="url(#tealGradient)"/>
+    <text x="425" y="85" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">Management / 管理</text>
+
+    <!-- Flow line legends -->
+    <line x1="20" y1="108" x2="55" y2="108" stroke="#e0f2fe" stroke-width="4" stroke-linecap="round"/>
+    <line x1="20" y1="108" x2="55" y2="108" class="flow-line-sky" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowSky)"/>
+    <text x="65" y="112" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Request flow / 请求流</text>
+
+    <line x1="220" y1="108" x2="255" y2="108" stroke="#fef2f2" stroke-width="4" stroke-linecap="round"/>
+    <line x1="220" y1="108" x2="255" y2="108" class="flow-line-red" stroke="#ef4444" stroke-width="2"/>
+    <text x="265" y="112" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">429 Rejection / 拒绝</text>
+
+    <!-- Multi-instance note -->
+    <rect x="15" y="125" width="570" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+    <text x="300" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#92400e">Multi-instance + Redis = Global Rate Limiting</text>
+    <text x="300" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#92400e">多实例共享 Redis 计数器，确保限流策略全局一致（原子操作保证精确性）</text>
+  </g>
+
+</svg>

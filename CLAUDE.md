@@ -15,7 +15,30 @@ dotnet run --project RateLimiterDemo.AppHost
 dotnet run --project RateLimiterDemo
 ```
 
-Target framework: .NET 10.0. Aspire SDK 13.1.2.
+Target framework: .NET 10.0. Aspire SDK 13.2.4.
+
+## Why multi-instance + Redis
+
+In-memory rate limiting only works within a single process. When deployed with multiple instances, each instance maintains its own counter, resulting in 3x the allowed traffic. Redis provides a shared counter across all instances for true global rate limiting.
+
+```
+Multi-instance (in-memory fails):
+  Instance 1: 80/100    Instance 2: 90/100    Instance 3: 70/100
+  Total: 240 requests passed, but global limit should be 100!
+
+Multi-instance + Redis (correct):
+  Instance 1 ─┐   Instance 2 ─┤   Instance 3 ─┘
+               ↓
+         Redis counter: 100/100 (shared across all instances)
+```
+
+**Scenario comparison:**
+
+| Scenario | If rate limiting fails | With Redis working |
+|---|---|---|
+| 10 instances, each receives 10 requests | All pass (100 total) | Returns 429 from the 6th request onward |
+| Load balancer random distribution | Unpredictable, frequently over limit | Precise control, all blocked after 100 |
+| High concurrency burst | May exceed limit 2-3x | Atomic operations ensure precision |
 
 ## Architecture
 
@@ -33,6 +56,20 @@ This is a .NET Aspire distributed application demonstrating Redis-based rate lim
 | `FixedWindowRateLimiter` | Fixed Window | String counter with TTL | `GET /api/demo/fixed-window` (via middleware) |
 | `SlideWindowRateLimiter` | Sliding Window | Sorted Set (timestamp+guid members) | `GET /api/demo/sliding-window-test` (direct call) |
 | `LuaScriptRateLimiter` | Token Bucket | Hash + Lua script (atomic) | `GET /api/demo/token-bucket-test` (direct call) |
+
+**Algorithm comparison:**
+
+| | Fixed Window | Sliding Window | Token Bucket |
+|---|---|---|---|
+| Burst control | Poor (boundary doubling) | Good (smooth) | Good (allows reasonable bursts) |
+| Memory | Low (1 key) | High (1 entry per request) | Low (1 key) |
+| Complexity | Simple | Medium | Complex (Lua script) |
+| Atomicity | Single INCREMENT | Pipeline batch | Lua script guaranteed |
+| Use case | Simple rate limiting | Precise rate limiting | API quotas, traffic shaping |
+
+- **Fixed Window**: Counts requests in fixed time intervals. Simplest but suffers from boundary bursts (2x requests at window edges).
+- **Sliding Window**: Window slides continuously over time. No boundary issue but stores one Sorted Set member per request.
+- **Token Bucket**: Tokens refill at a fixed rate, each request consumes one. Allows short bursts while keeping long-term rate controlled. Requires Lua script for atomic operations.
 
 **Key flow:**
 - `RateLimitingMiddleware` intercepts requests and applies `FixedWindowRateLimiter` based on `[RateLimitPolicy]` attribute on endpoints. Policies: `strict` (10 req/min), `relaxed` (1000 req/min), `default` (100 req/min).
