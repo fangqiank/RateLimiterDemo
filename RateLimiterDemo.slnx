@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="RateLimiterDemo.AppHost/RateLimiterDemo.AppHost.csproj" />
+  <Project Path="RateLimiterDemo.ServiceDefaults/RateLimiterDemo.ServiceDefaults.csproj" />
+  <Project Path="RateLimiterDemo/RateLimiterDemo.csproj" />
+</Solution>
